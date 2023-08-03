@@ -1,0 +1,9 @@
+[build-system]
+requires = [
+    "jax",
+    "flax",
+    "pybind11",
+    "setuptools",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
