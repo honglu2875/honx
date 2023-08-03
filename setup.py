@@ -17,12 +17,18 @@ CXX_FLAGS = ["-g", "-O2", "-std=c++17", f"-I{pybind11.get_include()}"]
 
 ext_modules = []
 
-test_1_module = Pybind11Extension(
+min_dist_module = Pybind11Extension(
     "honx._min_dist",
-    ["src/honx/_min_dist/dijkstra.cpp",],
-    #include_dirs=[pybind_include_dir],
+    ["src/honx/_min_dist/dijkstra.cpp"],
 )
-ext_modules.append(test_1_module)
+toy_module = Pybind11Extension(
+    "honx._toy",
+    ["src/honx/_toy/string_shift.cpp"],
+    include_dirs=["src/honx/_utils"],
+)
+
+ext_modules.append(min_dist_module)
+ext_modules.append(toy_module)
 
 
 def get_path(*filepath) -> str:
